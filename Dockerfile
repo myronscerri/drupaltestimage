@@ -135,6 +135,5 @@ RUN /etc/init.d/mysql start && \
 	drupal module:install admin_toolbar --latest && \
 	drupal module:install devel --latest
 
-VOLUME ["/drupal_files"]
 EXPOSE 80 3306 22 443
 CMD exec supervisord -n
