@@ -32,4 +32,9 @@ RUN curl -fSL "https://ftp.drupal.org/files/projects/drupal-${DRUPAL_VERSION}.ta
 	&& rm drupal.tar.gz \
 	&& chown -R www-data:www-data sites modules themes
 
-VOLUME ["/drupal_files"]
+# Configure directories for drupal.
+RUN mkdir /var/www_files && \
+    mkdir -p /var/www_files/public && \
+    mkdir -p /var/www_files/private && \
+    chown -R www-data:www-data /var/www_files
+VOLUME /var/www_files
