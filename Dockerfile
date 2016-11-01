@@ -33,4 +33,4 @@ RUN curl -fSL "https://ftp.drupal.org/files/projects/drupal-${DRUPAL_VERSION}.ta
 	&& chown -R www-data:www-data sites modules themes
 
 # Configure directories for drupal.
-VOLUME /var/www/html
+VOLUME /var/www/html/www-data
