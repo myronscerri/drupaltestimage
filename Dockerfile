@@ -134,6 +134,9 @@ RUN drupal init
 #	cd /var/www && \
 #	drupal module:install admin_toolbar --latest && \
 #	drupal module:install devel --latest
+RUN /bin/bash -c "/usr/bin/mysqld_safe &" && \
+  sleep 5 && \
+  mysql -u root -e "CREATE DATABASE drupal"
 
 EXPOSE 80 3306 22 443
 CMD exec supervisord -n
