@@ -91,8 +91,13 @@ RUN echo -e '[program:blackfire]\ncommand=/usr/local/bin/launch-blackfire\n\n' >
 RUN echo -e '[program:cron]\ncommand=cron -f\nautorestart=false \n\n' >> /etc/supervisor/supervisord.conf
 
 # Setup XDebug.
-RUN echo "xdebug.max_nesting_level = 300" >> /etc/php5/apache2/conf.d/20-xdebug.ini
-RUN echo "xdebug.max_nesting_level = 300" >> /etc/php5/cli/conf.d/20-xdebug.ini
+#RUN echo "xdebug.max_nesting_level = 300" >> /etc/php5/apache2/conf.d/20-xdebug.ini
+#RUN echo "xdebug.max_nesting_level = 300" >> /etc/php5/cli/conf.d/20-xdebug.ini
+#Set up debugger
+RUN echo "zend_extension=/usr/lib/php5/20131226/xdebug.so" >> /etc/php5/apache2/php.ini
+RUN echo "xdebug.remote_enable=1" >> /etc/php5/apache2/php.ini
+#Please provide your host (local machine IP) instead of 192.168.2.117
+RUN echo "xdebug.remote_host=192.168..152" >> /etc/php5/apache2/php.ini
 
 # Install Composer.
 RUN curl -sS https://getcomposer.org/installer | php
