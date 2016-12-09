@@ -1,5 +1,5 @@
 FROM debian:jessie
-MAINTAINER Wouter Admiraal <wad@wadmiraal.net>
+MAINTAINER Myron Scerri <myron@adaptive.co.uk>
 ENV DEBIAN_FRONTEND noninteractive
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
